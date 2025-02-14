@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"*.as.ts": "assemblyscript",
+		"*.svg": "html",
+		"*.mdx": "markdown",
+		"ostream": "cpp"
+	}
+}
