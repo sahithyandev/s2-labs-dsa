@@ -3,6 +3,7 @@
 		"*.as.ts": "assemblyscript",
 		"*.svg": "html",
 		"*.mdx": "markdown",
-		"ostream": "cpp"
+		"ostream": "cpp",
+		"cmath": "cpp"
 	}
 }

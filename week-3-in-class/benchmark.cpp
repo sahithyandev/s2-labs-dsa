@@ -163,26 +163,6 @@ vector<int> parseInput(const string &line)
 	return numbers;
 }
 
-// Benchmark function (for iterative sort)
-double benchmark_iterative(vector<int> (*sortFunction)(vector<int>), vector<int> arr)
-{
-	auto start = high_resolution_clock::now();
-	vector<int> sortedArr = sortFunction(arr); // Call sorting function
-	auto end = high_resolution_clock::now();
-	duration<double> elapsed = end - start;
-	return elapsed.count();
-}
-
-// Benchmark function (for recursive sort)
-double benchmark_recursive(void (*sortFunction)(vector<int> &, int, int), vector<int> arr)
-{
-	auto start = high_resolution_clock::now();
-	sortFunction(arr, 0, arr.size() - 1); // Call sorting function
-	auto end = high_resolution_clock::now();
-	duration<double> elapsed = end - start;
-	return elapsed.count();
-}
-
 int main()
 {
 	ifstream inputFile("inputs.txt");
@@ -203,20 +183,36 @@ int main()
 	outputFile << "Input Size,Input,Program,Execution Time (seconds)\n";
 
 	string line;
+
+	auto start = high_resolution_clock::now();
+	auto end = start;
+	duration<double> elapsed;
+	double elapsed_time;
+
 	while (getline(inputFile, line))
 	{
 		vector<int> numbers = parseInput(line);
 		int size = numbers.size();
 
 		// Benchmark iterative merge sort
-		double timeIterative = benchmark_iterative(merge_sort_iterative, numbers);
-		outputFile << size << "," << line << ",merge-sort-iterative," << timeIterative << "\n";
+		start = high_resolution_clock::now();
+		merge_sort_iterative(numbers);
+		end = high_resolution_clock::now();
+		elapsed = end - start;
+		elapsed_time = elapsed.count();
+
+		outputFile << size << "," << line << ",merge-sort-iterative," << elapsed_time << "\n";
 
 		// Benchmark recursive merge sort
-		double timeRecursive = benchmark_recursive(merge_sort_recursive, numbers);
-		outputFile << size << "," << line << ",merge-sort-recursive," << timeRecursive << "\n";
+		start = high_resolution_clock::now();
+		merge_sort_recursive(numbers, 0, numbers.size() - 1);
+		end = high_resolution_clock::now();
+		elapsed = end - start;
+		elapsed_time = elapsed.count();
 
-		cout << "Benchmarked input size " << size << endl;
+		outputFile << size << "," << line << ",merge-sort-recursive," << elapsed_time << "\n";
+
+		// cout << "Benchmarked input size " << size << endl;
 	}
 
 	inputFile.close();
