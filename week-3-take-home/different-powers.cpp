@@ -9,7 +9,7 @@ int calculatePowerSum(int X, int N, int starting_number)
 
 	if (X == 0)
 		return 1;
-	if (X < power)
+	if (X < 0)
 		return 0;
 
 	return calculatePowerSum(X - power, N, starting_number + 1) +

@@ -76,6 +76,6 @@ int powerSum(int X, int N)
 int main()
 {
 
-	cout << powerSum(10, 2) << endl;
+	cout << powerSum(1000, 2) << endl;
 	return 0;
 }

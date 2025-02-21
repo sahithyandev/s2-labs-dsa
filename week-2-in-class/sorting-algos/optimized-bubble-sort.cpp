@@ -3,7 +3,7 @@
 
 using namespace std;
 
-vector<int> getNumbersInput()
+vector<int> get_numbers_input()
 {
 	vector<int> numbers{};
 	int currentNumber;
@@ -42,7 +42,7 @@ void bubbleSort(vector<int> &numbers)
 int main()
 {
 
-	vector<int> numbers = getNumbersInput();
+	vector<int> numbers = get_numbers_input();
 	bubbleSort(numbers);
 	for (uint i = 0; i < numbers.size(); i++)
 	{
