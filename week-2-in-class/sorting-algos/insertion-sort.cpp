@@ -17,7 +17,7 @@ vector<int> get_numbers_input()
 	return numbers;
 }
 
-void insertionSort(vector<int> &numbers)
+void insertion_sort(vector<int> &numbers)
 {
 	for (uint currentIndex = 1; currentIndex < numbers.size(); currentIndex++)
 	{
@@ -36,7 +36,7 @@ void insertionSort(vector<int> &numbers)
 int main()
 {
 	vector<int> numbers = get_numbers_input();
-	insertionSort(numbers);
+	insertion_sort(numbers);
 	for (uint i = 0; i < numbers.size(); i++)
 	{
 		cout << numbers[i] << " ";
