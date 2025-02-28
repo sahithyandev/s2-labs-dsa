@@ -4,6 +4,7 @@
 		"*.svg": "html",
 		"*.mdx": "markdown",
 		"ostream": "cpp",
-		"cmath": "cpp"
+		"cmath": "cpp",
+		"iostream": "cpp"
 	}
 }
