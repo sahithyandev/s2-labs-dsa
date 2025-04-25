@@ -5,6 +5,7 @@
 		"*.mdx": "markdown",
 		"ostream": "cpp",
 		"cmath": "cpp",
-		"iostream": "cpp"
+		"iostream": "cpp",
+		"new": "cpp"
 	}
 }
